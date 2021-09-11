@@ -1,0 +1,107 @@
+/* 
+    Dark Blue:  #22293C
+*/
+
+/* IMPORTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+/* 
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Playfair Display', serif;
+*/
+
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+
+/* LOADING SCREEN */
+
+/* 
+    Since I am not using Javascript for this project, I am unable to animate the display property.
+    Instead the CSS below animates the opacity, height, width and position of the div to make it disappear.
+    This is not good practice and will interfere with accessibility.
+*/
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #22293C;
+    animation: fade-out 1.5s linear 2s 1 normal forwards,
+                disappear .5s linear 3.5s normal forwards;
+}
+
+.loading h1 {
+    color: #FFF;
+    margin-bottom: 1em;
+    animation: fade-out 1s linear 1s 1 normal forwards,
+                disappear .5s linear 2.5s normal forwards;
+}
+
+.loading hr {
+    border: 0;
+    width: 14em;
+    border-top: 1px solid #FFF;
+    animation: load 1s ease-out 0s 1 normal forwards,
+                fade-out 1s linear 1s 1 normal forwards,
+                disappear .5s linear 2s normal forwards;
+}
+
+@keyframes fade-out {
+    0% {opacity: 100;} 
+    70% {opacity: 99;}
+    90% {opacity: 0;}
+    100% {opacity: 0;}
+}
+
+@keyframes load {
+    0% {width: 0em;}
+    50% {width: 14em;}
+    99% {width: 14em;}
+}
+
+@keyframes disappear {
+    from {width: 100%;}
+    to {width: 0%; height: 0%; position: absolute; border: 0; margin: 0;}
+}
+
+/* CONTENT */
+.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.package {
+    width: 33.33%;
+    height: 100%;
+}
