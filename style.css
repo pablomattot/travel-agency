@@ -5,10 +5,6 @@
 /* IMPORTS */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
-/* 
-    font-family: 'Montserrat', sans-serif;
-    font-family: 'Playfair Display', serif;
-*/
 
 /* GENERAL */
 
@@ -27,6 +23,15 @@ h1 {
     font-size: 25px;
     font-weight: bold;
     letter-spacing: 10px;
+    color: #FFF;
+    margin-bottom: 1em;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color: #FFF;
+    font-weight: 600;
 }
 
 /* LOADING SCREEN */
@@ -50,8 +55,6 @@ h1 {
 }
 
 .loading h1 {
-    color: #FFF;
-    margin-bottom: 1em;
     animation: fade-out 1s linear 1s 1 normal forwards,
                 disappear .5s linear 2.5s normal forwards;
 }
@@ -90,18 +93,64 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
 }
 
 .flex-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     width: 100%;
     height: 100%;
 }
 
 .package {
-    width: 33.33%;
+    min-width: 0;
+    height: 0;
+    background-position: center;
+    background-size: cover;
+    animation: appear 0s linear 2.5s 1 normal forwards,
+                fade-in 1.5s linear 2.5s 1 normal forwards;
+}
+
+.package h1 {
+    margin-bottom: .5em;
+}
+
+#adventure {
+    background-image: url(https://images.pexels.com/photos/6108085/pexels-photo-6108085.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
+}
+#romantic {
+    background-image: url(https://images.pexels.com/photos/6401667/pexels-photo-6401667.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260);
+}
+#vacation {
+    background-image: url(https://images.pexels.com/photos/3889843/pexels-photo-3889843.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
+}
+
+@keyframes appear {
+    from {width: 0; height: 0;}
+    to {min-width: 33.33%; height: 100%;}
+}
+
+@keyframes fade-in {
+    0% {opacity: 0;} 
+    10% {opacity: 0;}
+    70% {opacity: 99;}
+    100% {opacity: 100;}
+}
+
+.cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100%;
+    width: 100%;
+    opacity: 0;
+    background-color: #22293C;
+    transition: opacity .5s;
+}
+.cover:hover {
+    cursor: pointer;
+    opacity: 0.7;
 }
