@@ -17,13 +17,14 @@ html, body {
     width: 100%;
 }
 
-h1 {
+h1, button, .searchbar input {
     font-family: 'Playfair Display', serif;
     font-size: 25px;
     font-weight: bold;
     letter-spacing: 10px;
     color: #FFF;
     margin-bottom: 1em;
+    border: none;
 }
 
 p {
@@ -130,12 +131,11 @@ label {
 }
 
 input:checked~label {
-    color: #FFF;
-    background: rgb(34, 41, 60);
+    background: rgb(255, 255, 255);
 }
 
 /*hide the inputs*/
-input {
+#check01 {
     display: none
 }
 
@@ -146,7 +146,7 @@ input:checked~ul.submenu {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    width: 50vw;
+    width: 40vw;
     top: 0;
     left: 0;
     padding-top: 4em;
@@ -158,23 +158,64 @@ ul.submenu {
     padding: 0;
     overflow: hidden;
     list-style-type: none;
-    background: #22293C;
+    background: #FFF;
     position: absolute;
     min-width: 100%;
 }
 
-ul.submenu li a {
-    display: block;
+ul.submenu li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 12px;
-    color: #FFF;
     text-decoration: none;
-    box-shadow: 0 -1px rgba(0, 0, 0, .5) inset;
-    transition: background .3s;
     white-space: nowrap;
 }
 
-ul.submenu li a:hover {
-    background: rgba(0, 0, 0, .3);
+ul.submenu li p,
+ul.submenu h1 {
+    color: #22293C;
+}
+
+ul.submenu h1 {
+    position: absolute;
+    top: 0;
+    left: 72px;
+}
+
+ul.submenu li button {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 7px 2em;
+    color: #FFF;
+    background-color: #22293C;
+    width: 284px;
+    height: 58px;
+}
+button:hover {
+    cursor: pointer;
+}
+
+.searchbar {
+    border: 1px solid #22293C;
+    padding: 1em;
+    position: relative;
+    width: 250px;
+}
+.searchbar p {
+    position: absolute;
+    top: -7px;
+    background-color: #FFF;
+    padding: 0 7px;
+}
+.searchbar input {
+    border: none;
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    font-size: 18px !important;
+    color: #22293C;
+    margin: 0;
+    width: 95%;
 }
 
 /* CONTENT */
