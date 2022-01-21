@@ -135,7 +135,7 @@ input:checked~label {
 }
 
 /*hide the inputs*/
-#check01 {
+#menubutton {
     display: none
 }
 
